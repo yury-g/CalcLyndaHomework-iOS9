@@ -56,10 +56,10 @@ class ViewController: UIViewController {
         
         
         if currentMode == modes.ADD{
-            savedNum += num
+            savedNum = savedNum + num
         }
         else if currentMode == modes.SUB{
-            savedNum -= num
+            savedNum = savedNum - num
         }
         
         currentMode = modes.NOT_SET
@@ -93,19 +93,16 @@ class ViewController: UIViewController {
     
     func updateText(){
         
-//        if (currentMode == modes.EQULS) {
-//            let labelInt = savedNum
-//            let myString = String(labelInt)
-//        
-//        } else {
-        
         let labelInt = Int(labelString)!
-        let myString = String(labelInt)
+        //let myString = String(labelInt)
      
-            if currentMode == modes.NOT_SET {
+        if currentMode == modes.NOT_SET {
                     savedNum = labelInt
-                    label.text = myString
-        }
+                  }
+        let myFormatter = NSNumberFormatter()
+        myFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        let num = NSNumber(integer: labelInt)
+         label.text = myFormatter.stringFromNumber(num)
     }
     
 
