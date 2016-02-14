@@ -33,6 +33,9 @@
                                 <state key="normal" title="7">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GgC-ay-o2S"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNt-ky-uLS">
                                 <rect key="frame" x="156" y="132" width="140" height="109"/>
@@ -41,6 +44,9 @@
                                 <state key="normal" title="8">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nRa-B8-h4n"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Als-dc-5B7">
                                 <rect key="frame" x="304" y="132" width="140" height="109"/>
@@ -71,6 +77,9 @@
                                 <state key="normal" title="4">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wa8-fN-bSa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohZ-KA-nmZ">
                                 <rect key="frame" x="156" y="249" width="140" height="109"/>
@@ -79,6 +88,9 @@
                                 <state key="normal" title="5">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P7M-As-lZo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYM-ah-4jO">
                                 <rect key="frame" x="304" y="249" width="140" height="109"/>
@@ -109,6 +121,9 @@
                                 <state key="normal" title="1">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A0r-05-xy1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsi-xR-1S6">
                                 <rect key="frame" x="156" y="366" width="140" height="109"/>
@@ -117,6 +132,9 @@
                                 <state key="normal" title="2">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zab-Cp-W9q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IL2-Pf-gF2">
                                 <rect key="frame" x="304" y="366" width="140" height="109"/>
@@ -136,6 +154,9 @@
                                 <state key="normal" title="0">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wo8-hV-NBT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdH-rP-eVu">
                                 <rect key="frame" x="304" y="483" width="140" height="109"/>

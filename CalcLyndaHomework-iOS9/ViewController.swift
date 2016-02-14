@@ -12,6 +12,7 @@ enum modes{
     case NOT_SET
     case ADD
     case SUB
+    case EQULS
 }
 
 
@@ -24,36 +25,81 @@ class ViewController: UIViewController {
     var lastButtonWasMode: Bool = false
     
     @IBAction func tappedNumber(sender: UIButton) {
-          let theTappedNum = Int(sender.titleLabel!.text!)
-        
-        savedNum = theTappedNum!
-        print("savedNum=\(savedNum)")
-        
+    
+        if lastButtonWasMode {
+            lastButtonWasMode = false
+            labelString = "0"
         }
+        
+            let num = Int(sender.titleLabel!.text!)
+            print("\(num!)")
+            let myString = String(num!)
+            labelString = labelString + myString
+            savedNum = Int(labelString)!
+            updateText()
+
+    }
+    
     
     
     @IBAction func tappedPlus(sender: UIButton) {
+        changeMode(modes.ADD)
     }
+    
     @IBAction func tappedMinus(sender: UIButton) {
+        changeMode(modes.SUB)
+
     }
+    
     @IBAction func tappedEQ(sender: AnyObject) {
-    }
-    
-    @IBAction func tappedCleared(sender: UIButton) {
-    }
-    func tappedNumberUser
-(num: Int){
+        //changeMode(modes.EQULS)
         
-    }
-    
-    func updateText(){
-        labelString = String("\(savedNum)")
-        label.text = labelString
+        
+        if currentMode == modes.ADD{
+            savedNum +=
+        }
+        
     }
     
     func changeMode(newMode: modes){
+        if savedNum == 0 {
+            return
+        }
+        currentMode = newMode
+        lastButtonWasMode = true
         
     }
+    
+    
+    @IBAction func tappedCleared(sender: UIButton) {
+        resetToDefaultCalc()
+        updateText()
+    }
+    
+    func resetToDefaultCalc(){
+        labelString = "0"
+        currentMode = modes.NOT_SET
+        savedNum = 0
+        lastButtonWasMode = false
+    }
+    
+    
+    func updateText(){
+        let labelInt = Int(labelString)!
+        let myString = String(labelInt)
+        
+        if currentMode == modes.NOT_SET {
+            savedNum = labelInt
+        }
+        
+        
+        label.text = myString
+        
+        
+        
+    }
+    
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
