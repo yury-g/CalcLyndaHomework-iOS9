@@ -52,13 +52,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedEQ(sender: AnyObject) {
-        //changeMode(modes.EQULS)
+        let num = Int(labelString)!
         
         
         if currentMode == modes.ADD{
-            savedNum +=
+            savedNum += num
+        }
+        else if currentMode == modes.SUB{
+            savedNum -= num
         }
         
+        currentMode = modes.NOT_SET
+        labelString = "\(savedNum)"
+        updateText()
+        lastButtonWasMode = true
     }
     
     func changeMode(newMode: modes){
@@ -85,21 +92,22 @@ class ViewController: UIViewController {
     
     
     func updateText(){
+        
+//        if (currentMode == modes.EQULS) {
+//            let labelInt = savedNum
+//            let myString = String(labelInt)
+//        
+//        } else {
+        
         let labelInt = Int(labelString)!
         let myString = String(labelInt)
-        
-        if currentMode == modes.NOT_SET {
-            savedNum = labelInt
+     
+            if currentMode == modes.NOT_SET {
+                    savedNum = labelInt
+                    label.text = myString
         }
-        
-        
-        label.text = myString
-        
-        
-        
     }
     
- 
 
     override func viewDidLoad() {
         super.viewDidLoad()
