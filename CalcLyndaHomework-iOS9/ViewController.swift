@@ -43,11 +43,11 @@ class ViewController: UIViewController {
         
         let myString = String(newNum)
         labelString = labelString + myString
-        savedNum = Int(labelString)!  // My Code
+        newNum = Int(labelString)!  // My Code
         
         
        print("labelString \(labelString)  savedNum\(savedNum)"+"     current mode  \(currentMode)  newNum \(newNum)  total \(totalNum)  ")
-        updateText(savedNum)
+        updateText(newNum)
        
     }
     
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
     }
     
     func changeMode(newMode: modes){
-        if savedNum == 0 {
+        if newNum == 0 {
             return
         }
         savedNum = newNum
