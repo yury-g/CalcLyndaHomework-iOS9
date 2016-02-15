@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var currentMode: modes = modes.NOT_SET
     var newNum: Int = 0
     var savedNum: Int = 0
+    var totalNum: Int = 0
     var lastButtonWasMode: Bool = false
    
     @IBOutlet weak var label: UILabel!
@@ -34,20 +35,21 @@ class ViewController: UIViewController {
             labelString = "0"
         }
         
-        let num = Int(sender.titleLabel!.text!)
-            print("num is \(num!)")
+        let onScreenNum = Int(sender.titleLabel!.text!)
+        newNum = onScreenNum!
+        
+        print("newNum is \(newNum)")
         
         
-        let myString = String(num!)
-            labelString = labelString + myString
+        let myString = String(newNum)
+        labelString = labelString + myString
+        savedNum = Int(labelString)!  // My Code
         
-            savedNum = Int(labelString)!  // My Code
-
-        print("labelString \(labelString)"+"  modes  ?"+"  savedNum  \(savedNum)"+"     current mode  \(currentMode)" + "  LastButtonWasMode")
-            updateText()
-       }
-    
-    
+        
+       print("labelString \(labelString)  savedNum\(savedNum)"+"     current mode  \(currentMode)  newNum \(newNum)  total \(totalNum)  ")
+        updateText(savedNum)
+       
+    }
     
     @IBAction func tappedPlus(sender: UIButton) {
         print("labelString \(labelString)"+"  modes  ?"+"  savedNum  \(savedNum)"+"     current mode  \(currentMode)" + "  LastButtonWasMode")
@@ -64,6 +66,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedEQ(sender: AnyObject) {
+        print("labelString \(labelString)  savedNum\(savedNum)"+"     current mode  \(currentMode)" + "  newNum\(newNum)")
+
         let num = newNum
         
         if currentMode == modes.NOT_SET || lastButtonWasMode{
@@ -72,30 +76,32 @@ class ViewController: UIViewController {
         
         
         if currentMode == modes.ADD{
-            savedNum = savedNum + num
+            totalNum = savedNum + num
             print("savedNum \(savedNum) + num \(num)")
-            print("= \(savedNum)")
+            print("= \(totalNum)")
             
         }
         else if currentMode == modes.SUB{
-            savedNum = savedNum - num
+            totalNum = savedNum - num
             print("savedNum \(savedNum) - num \(num)")
-            print("= \(savedNum)")
+            print("= \(totalNum)")
             
             
         } else if currentMode == modes.MULTI{
-                savedNum = savedNum * num
+                totalNum = savedNum * num
                 print("savedNum \(savedNum) * num \(num)")
-                print("= \(savedNum)")
+                print("= \(totalNum)")
             
             }
         
-       print("labelString \(labelString)"+"  modes  ?"+"  savedNum  \(savedNum)"+"     current mode  \(currentMode)" + "  LastButtonWasMode")
       
         currentMode = modes.NOT_SET
-        labelString = "\(savedNum)"
-        updateText()
+        labelString = "\(totalNum)"
+        updateText(totalNum)
         lastButtonWasMode = true
+
+        print("labelString \(labelString)  savedNum\(savedNum)"+"     current mode  \(currentMode)  newNum \(newNum)  total \(totalNum)  ")
+
     }
     
     func changeMode(newMode: modes){
@@ -113,7 +119,7 @@ class ViewController: UIViewController {
     
     @IBAction func tappedCleared(sender: UIButton) {
         resetToDefaultCalc()
-        updateText()
+        updateText(0)
     }
     
     func resetToDefaultCalc(){
@@ -125,14 +131,12 @@ class ViewController: UIViewController {
         lastButtonWasMode = false
     }
     
-    
-    func updateText(){
+    func updateText(passedInt: Int){
         
-        let labelInt = Int(labelString)!
-        //let myString = String(labelInt)
+        let labelInt = passedInt
      
         if currentMode == modes.NOT_SET {
-                    savedNum = labelInt
+                    newNum = labelInt
                   }
         
         let myFormatter = NSNumberFormatter()
