@@ -12,33 +12,36 @@ enum modes{
     case NOT_SET
     case ADD
     case SUB
-    case EQULS
+    case MULTI
 }
 
 
 class ViewController: UIViewController {
-    @IBOutlet weak var label: UILabel!
     
+    // Default State Of Calc
     var labelString: String = "0"
     var currentMode: modes = modes.NOT_SET
     var savedNum: Int = 0
     var lastButtonWasMode: Bool = false
+   
+    @IBOutlet weak var label: UILabel!
     
     @IBAction func tappedNumber(sender: UIButton) {
-    
+
         if lastButtonWasMode {
             lastButtonWasMode = false
             labelString = "0"
         }
         
-            let num = Int(sender.titleLabel!.text!)
-            print("\(num!)")
+        let num = Int(sender.titleLabel!.text!)
+            print("num is \(num!)")
             let myString = String(num!)
             labelString = labelString + myString
             savedNum = Int(labelString)!
-            updateText()
 
-    }
+            print("num is \(num!)"+"     myString: \(myString)"+"     labelString: \(labelString)"+"     savedNum: \(savedNum)"+"     current mode: \(currentMode)")
+            updateText()
+       }
     
     
     
