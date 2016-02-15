@@ -64,6 +64,12 @@ class ViewController: UIViewController {
 
 
     }
+    @IBAction func tappedMulti(sender: UIButton) {
+        changeMode(modes.MULTI)
+        print("labelString \(labelString)   newNum \(newNum)  savedNum \(savedNum)  current mode  \(currentMode)")
+        
+        
+    }
     
     @IBAction func tappedEQ(sender: AnyObject) {
         print("labelString \(labelString)  savedNum\(savedNum)"+"     current mode  \(currentMode)" + "  newNum\(newNum)")
