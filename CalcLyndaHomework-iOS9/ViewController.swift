@@ -193,6 +193,28 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     //MARK: - Speaking Machine
     
+    @IBAction func Speak(sender: UIButton) {
+    
+//     Trigger Equals Mode, that is yet to exist. 
+        
+        if totalNum == 0 && savedNum == 0 {
+            speakThisString(String(newNum))
+           
+           }
+        
+        if totalNum == 0 && savedNum != 0  && newNum != savedNum {
+            
+            speakThisString(String(savedNum))
+            
+        }
+        
+        if totalNum != 0 {
+        speakThisString(String(totalNum))
+        }
+
+    }
+    
+    
     func speakThisString(passedString: String){
         
         mySpeechSynth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
