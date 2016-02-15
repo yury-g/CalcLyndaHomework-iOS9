@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         newNum = Int(labelString)!  // My Code
         
         
-       print("labelString \(labelString)  savedNum\(savedNum)"+"     current mode  \(currentMode)  newNum \(newNum)  total \(totalNum)  ")
+       print("savedNum\(savedNum)"+"     current mode  \(currentMode)  newNum \(newNum)  total \(totalNum)  ")
         updateText(newNum)
        
     }
@@ -125,6 +125,7 @@ class ViewController: UIViewController {
     func resetToDefaultCalc(){
         savedNum = 0
         newNum = 0
+        totalNum = 0
         labelString = "0"
         label.text = "0"
         currentMode = modes.NOT_SET
