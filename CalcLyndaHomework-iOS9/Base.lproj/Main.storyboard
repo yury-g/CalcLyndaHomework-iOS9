@@ -200,9 +200,14 @@
                                     <action selector="tappedEQ:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HDs-m9-MtH"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ws-Ce-fof">
+                            <pickerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ws-Ce-fof">
                                 <rect key="frame" x="8" y="28" width="584" height="65"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.88232080419580416" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ohR-qS-8T0"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QUM-Gh-7yh"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -286,6 +291,7 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="6jm-Ny-q5b" id="ieg-CW-55X"/>
+                        <outlet property="myLangPicker" destination="3Ws-Ce-fof" id="oqZ-1T-v38"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
