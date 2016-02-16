@@ -36,7 +36,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     // MARK: - ViewController Class-Wide Variables
     // MARK: Speach Related
     let mySpeechSynth = AVSpeechSynthesizer()
-    var myRate: Float = 0.50
+    var myRate: Float = 0.48
+    var mySlowRate: Float = 0.35
     var myPitch: Float = 1.15
     var myVolume: Float = 0.92
     var currentLang = ("en-US", "English","United States","American English ","🇺🇸")
@@ -194,8 +195,35 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     //MARK:   UIPickerView Outlets
     @IBOutlet weak var myLangPicker: UIPickerView!
     
+    @IBAction func speakTouchDown(sender: UIButton) {
+    
+        print("speakTouchDown")
+
+    }
     //MARK: - Speaking Machine
     
+    @IBAction func speakTouchDownRepeat(sender: UIButton) {
+    
+        
+        print("speakTouchDownRepeat")
+    
+        if totalNum == 0 && savedNum == 0 {
+            speakThisStringSlowly(String(newNum))
+            
+        }
+        
+        if totalNum == 0 && savedNum != 0  && newNum != savedNum {
+            
+            speakThisStringSlowly(String(savedNum))
+            
+        }
+        
+        if totalNum != 0 {
+            speakThisStringSlowly(String(labelString))
+        }
+
+        
+    }
     @IBAction func Speak(sender: UIButton) {
     
 //     Trigger Equals Mode, that is yet to exist. 
@@ -212,7 +240,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
         
         if totalNum != 0 {
-        speakThisString(String(totalNum))
+        speakThisString(String(labelString))
         }
 
     }
@@ -232,7 +260,20 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
     }
-
+    func speakThisStringSlowly(passedString: String){
+        
+        mySpeechSynth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
+        
+        let myUtterance = AVSpeechUtterance(string: passedString)
+        myUtterance.rate = mySlowRate
+        myUtterance.pitchMultiplier = myPitch
+        myUtterance.volume = myVolume
+        myUtterance.voice = AVSpeechSynthesisVoice(language: currentLang.0)
+        mySpeechSynth.speakUtterance(myUtterance)
+        
+        
+        
+    }
     
     //MARK: - Langugage UIPickerView Methods
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
