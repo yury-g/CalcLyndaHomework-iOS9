@@ -107,14 +107,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             print("= \(totalNum)")
             
         }
-        else if currentMode == modes.SUB{
+        
+        if currentMode == modes.SUB{
             totalNum = savedNum - num
             print("savedNum \(savedNum) - num \(num)")
             print("= \(totalNum)")
             
             
-        } else if currentMode == modes.MULTI{
-                totalNum = savedNum * num
+        }
+        
+        if currentMode == modes.MULTI{
+                totalNum = (savedNum * num)
                 print("savedNum \(savedNum) * num \(num)")
                 print("= \(totalNum)")
             
